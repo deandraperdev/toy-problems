@@ -1,30 +1,14 @@
-/**
-  *
-  * Implement a `BFSelect` method on this Tree class.
-  *
-  * BFSelect accepts a filter function, calls that function on each of the nodes
-  * in Breadth First order, and returns a flat array of node values of the tree
-  * for which the filter returns true.
-  *
-  * Example:
-  *   var root1 = new Tree(1);
-  *   var branch2 = root1.addChild(2);
-  *   var branch3 = root1.addChild(3);
-  *   var leaf4 = branch2.addChild(4);
-  *   var leaf5 = branch2.addChild(5);
-  *   var leaf6 = branch3.addChild(6);
-  *   var leaf7 = branch3.addChild(7);
-  *   root1.BFSelect(function (value, depth) {
-  *     return value % 2;
-  *   })
-  *   // [1, 3, 5, 7]
-  *
-  *   root1.BFSelect(function (value, depth) {
-  *     return depth === 1;
-  *   })
-  *   // [2, 3]
-  *
-  */
+
+
+  //  Implement a `BFSelect` method on this Tree class.
+
+  //  BFSelect accepts a filter function, calls that function on each of the nodes
+  //  in Breadth First order, and returns a flat array of node values of the tree
+  //  for which the filter returns true.
+
+
+
+
 
 /*
  * Basic tree that stores a value.
@@ -33,12 +17,28 @@
 var Tree = function(value) {
   this.value = value;
   this.children = [];
-};
+}
 
 
 
 Tree.prototype.BFSelect = function(filter) {
   // return an array of values for which the function filter(value, depth) returns true
+  //create an array for storing results
+  //create a number to track current depth
+  //inner function uses depth to traverse
+  //for(each child) check filter for truth
+  //if true push to array
+  let results = [];
+  let currdepth = 1;
+  let traverse = function(depth, value) {
+    if (depth === depth && value === value)
+    if (children.length > 0) {
+      for ( let i = 0; i < children.length; i++ ) {
+        return traverse(depth + 1, value)
+      }
+    }
+  }
+  return traverse(depth, value);
 };
 
 /**
@@ -94,3 +94,23 @@ Tree.prototype.removeChild = function(child) {
     throw new Error('That node is not an immediate child of this tree');
   }
 };
+
+  //  Example:
+  var root1 = new Tree(1);
+  var branch2 = root1.addChild(2);
+  var branch3 = root1.addChild(3);
+  var leaf4 = branch2.addChild(4);
+  var leaf5 = branch2.addChild(5);
+  var leaf6 = branch3.addChild(6);
+  var leaf7 = branch3.addChild(7);
+  root1.BFSelect(function (value, depth) {
+    return value % 2;
+ })
+  // [1, 3, 5, 7]
+
+  root1.BFSelect(function (value, depth) {
+    return depth === 1;
+  })
+  // [2, 3]
+
+  console.log(root1);
