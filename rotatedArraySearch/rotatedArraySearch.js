@@ -17,5 +17,9 @@
 
 var rotatedArraySearch = function (rotated, target) {
   // Your code here:
+  let len = rotated.length;
+  let shift = len - rotated[0];
+  return shift + target;
 };
 
+console.log(rotatedArraySearch([4, 5, 6, 0, 1, 2, 3], 2) === 5);
