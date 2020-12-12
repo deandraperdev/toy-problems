@@ -95,8 +95,50 @@
  *
  */
 
+//*
+two functions working together? I don't know how to do it in one I think
+create result storage
+compare first item of each array
 
-
-var mergeSort = function(array) {
-  // Your code here.
+send the smaller number to result(push)
+slice the smaller number from whatever array it was in (shift)
+result.push(arr.shift)
+when one array gets to 0, concat the entire rest of the other array on end of result
+*/
+let merge = (firstHalf, secondHalf) => {
+  let result = [];
+  //This only works if there are number in both, so check
+  while (firstHalf.length >= 1 && secondHalf.length >= 1) {
+    if (firstHalf[0] < secondHalf[0]) {
+      result.push(firstHalf.shift());
+      console.log("result", result);
+    } else {
+      result.push(secondHalf.shift());
+    }
+  }
+  // Once one of the arrays is empty, ->
+  result.concat(firstHalf.concat(secondHalf));
+  return result;
 };
+var mergeSort = function (array) {
+  console.log("array", array);
+  // Your code here.
+  // Trying the recursive approach
+  // Nothing to perform if array is length 1; aka base case
+  if (array.length <= 1) {
+    return array;
+  }
+  // Divide the array in half until we have solo items
+  let half = Math.floor(array.length / 2);
+  // Get first and second half
+  // Recurse to smallest possible
+  let firstHalf = mergeSort(array.slice(0, half));
+  let secondHalf = mergeSort(array.slice(half));
+  return merge(firstHalf, secondHalf);
+};
+
+/*
+split array repeatedly until only 1s are left
+*/
+
+console.log("results", mergeSort([2, 7, 9, 1, -4, 17, -1, 33, 25]));
