@@ -95,7 +95,7 @@
  *
  */
 
-//*
+/*
 two functions working together? I don't know how to do it in one I think
 create result storage
 compare first item of each array
@@ -117,8 +117,8 @@ let merge = (firstHalf, secondHalf) => {
     }
   }
   // Once one of the arrays is empty, ->
-  result.concat(firstHalf.concat(secondHalf));
-  return result;
+  let res2 = result.concat(firstHalf).concat(secondHalf);
+  return res2;
 };
 var mergeSort = function (array) {
   console.log("array", array);
