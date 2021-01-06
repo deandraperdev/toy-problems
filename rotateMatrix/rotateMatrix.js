@@ -19,31 +19,44 @@
  *
  * Example rotation of a 4x4 matrix:
  *
- * var matrix = [
- *  [1,2,3,4],
- *  [5,6,7,8],
- *  [9,'A','B','C'],
- *  ['D','E','F','G']
- * ];
- * matrix[0][0]; // 1
- * matrix[3][2]; // 'F'
- *
- * var rotatedMatrix = rotateMatrix(matrix); // Rotate 90 degrees clockwise
- * // rotatedMatrix is:
- * [ ['D',9,5,1],
- *  ['E','A',6,2],
- *  ['F','B',7,3],
- *  ['G','C',8,4]
- * ]
- * rotatedMatrix[0][0]; // 'D'
- * rotatedMatrix[3][2]; // 8
+
  *
  * Extra credit:
  *  - Make your function operate on rectangular matrices (MxN rather than NxN).
  *  - Make your function accept a parameter for the direction of rotation (1 = clockwise, -1 = counterclockwise)
  */
-
-var rotateMatrix = function(matrix
-) {
-  // Your code here.
+console.log('----------------------')
+var rotateMatrix = function(matrix) {
+    let cols = matrix.length;
+    let rows = matrix[0].length;
+    let newMatrix = [];
+    for (let i = 0; i < rows; i++) {
+        let row = [];
+        for (let j = cols - 1; j > 0; j--) {
+            row.push(matrix[j][i]);
+        }
+        newMatrix.push(row);
+    }
+    return newMatrix;
 };
+
+var matrix = [
+    [1,2,3,4],
+    [5,6,7,8],
+    [9,'A','B','C'],
+    ['D','E','F','G']
+];
+console.log('matrix', matrix)
+console.log(matrix[0][0]); // 1
+console.log(matrix[3][2]); // 'F'
+
+var rotatedMatrix = rotateMatrix(matrix); // Rotate 90 degrees clockwise
+// rotatedMatrix is:
+// [ ['D',9,5,1],
+//  ['E','A',6,2],
+//  ['F','B',7,3],
+//  ['G','C',8,4]
+// ]
+console.log(rotatedMatrix);
+console.log(rotatedMatrix[0][0]); // 'D'
+console.log(rotatedMatrix[3][2]); // 8
