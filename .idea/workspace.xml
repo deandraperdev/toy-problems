@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="13cccd23-4f57-43ca-9e71-e2a5ca8f9f18" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asyncMap/asyncMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/asyncMap/asyncMap.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +29,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -43,7 +42,7 @@
       <updated>1609954144028</updated>
       <workItem from="1609954145640" duration="3454000" />
       <workItem from="1609982916407" duration="401000" />
-      <workItem from="1609983390419" duration="34000" />
+      <workItem from="1609983390419" duration="1498000" />
     </task>
     <servers />
   </component>
