@@ -33,6 +33,12 @@
 
 var shuffleDeck = function(deck) {
   // Your code here
+  let results = []
+  while (deck.length >=1) {
+    let index = Math.floor(Math.random() * deck.length);
+    results.push(deck.splice(index, 1));
+  }
+  return results;
 };
 
 // Ordered deck generator provided for your testing convenience
@@ -50,3 +56,7 @@ var orderedDeck = function() {
 
   return deck;
 };
+
+console.log(shuffleDeck(orderedDeck()));
+
+// The time complexity of this is linear because the function performs a Math.random() and splice/push once for each element of the array.
