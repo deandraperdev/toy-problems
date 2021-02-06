@@ -11,5 +11,17 @@
 */
 
 var evenOccurrence = function(arr) {
-  // Your code here.
+  let cache = {};
+  for (let number of arr) {
+    if (cache[number] === undefined) {
+      cache[number] = 1;
+    } else {
+      cache[number]++;
+    }
+  }
+  for (let number of arr) {
+    if (cache[number] % 2 === 0) {
+      return number;
+    }
+  }
 };
