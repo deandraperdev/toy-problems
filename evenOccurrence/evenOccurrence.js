@@ -24,4 +24,5 @@ var evenOccurrence = function(arr) {
       return number;
     }
   }
+  return null;
 };
