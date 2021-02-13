@@ -1,4 +1,4 @@
-
+console.log('--------------------------------1')
 /**
   * Implement the `countLeaves` function in this Tree class.
   *
@@ -37,8 +37,18 @@ var Tree = function(value) {
   this.children = [];
 };
 
-Tree.prototype.countLeaves = function () {
+Tree.prototype.countLeaves = function (count = 0) {
   // TODO: implement me!
+  if (this.children.length > 0) {
+    console.log('children', this.children);
+    for (let i = 0; i < this.children.length; i++) {
+      return this.children[i].countLeaves(count);
+    }
+  } else {
+    count++;
+    return count;
+  }
+  return count;
 };
 
 /**
@@ -94,3 +104,14 @@ Tree.prototype.removeChild = function(child) {
     throw new Error('That node is not an immediate child of this tree');
   }
 };
+
+var root = new Tree();
+console.log(root.countLeaves()); // 1
+root.addChild(new Tree());
+root.countLeaves(); // still 1
+root.addChild(new Tree());
+root.children[0].addChild(new Tree());
+root.children[0].addChild(new Tree());
+root.children[0].children[0].addChild(new Tree());
+console.log(root);
+console.log(root.countLeaves()); // 3
