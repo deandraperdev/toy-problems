@@ -28,4 +28,17 @@ var Node = function(value) {
 
 var reverseLinkedList = function(node) {
   // Your code here.
+  let prev = null;
+  let curr = node;
+  let next = null;
+
+  while(curr !== null) {
+    next = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = next
+  }
+  return prev;
 };
+
+// counter to track current node's next value
