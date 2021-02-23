@@ -22,6 +22,9 @@ LinkedList.prototype.removeHead = function() {
   if (this.head !== null) {
     this.head = this.head.next
   }
+  if (this.head === null) {
+    this.tail = null;
+  }
   return node.value;
 };
 

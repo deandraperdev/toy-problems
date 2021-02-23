@@ -27,7 +27,7 @@ var binarySearch = function (array, target) {
             } else if (array[upper - 1] === target) {
                 return upper - 1
             } else {
-                return -1;
+                return null;
             }
         }
         let mid = Math.floor((upper - lower) / 2);
