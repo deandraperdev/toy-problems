@@ -53,12 +53,17 @@ var characterFrequency = function(string) {
     array.push(temp);
   };
   console.log('array', array);
-  let sortedArray = array.sort((a, b) => {
-    return b[1] - a[1]
-  });
-  console.log('sorted', sortedArray);
-  let result = array.sort((a, b) => {
-    return b[0] - a[0]
+  let sortedArray = array.sort((a,b) => {
+    if (b[0] > a[0]) {
+      return -1;
+    }
+    if (b[0] < a[0]) {
+      return 1;
+    }
+  })
+  console.log(sortedArray);
+  let result = sortedArray.sort((a, b) => {
+    return b[1] - a[1];
   })
   console.log('result', result);
   return result;
