@@ -37,5 +37,29 @@
 
 
 var characterFrequency = function(string) {
+  let cache = {};
+  let array = [];
+  for (let i = 0; i < string.length; i++) {
+    if (cache[string[i]] === undefined) {
+      cache[string[i]] = 1;
+    } else {
+      cache[string[i]]++
+    }
+  }
+  for (let letter in cache) {
+    let temp = [];
+    temp.push(letter);
+    temp.push(cache[letter]);
+    array.push(temp);
+  };
+  console.log('array', array);
+  let sortedArray = array.sort((a, b) => {
+    return b[1] - a[1]
+  });
+  console.log('sorted', sortedArray);
+  let result = array.sort((a, b) => {
+    return b[0] - a[0]
+  })
+  console.log('result', result);
   return result;
 };
