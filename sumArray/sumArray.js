@@ -11,4 +11,26 @@
 
 // Solved in O(n) time with O(1) memory
 var sumArray = function(array) {
+  let greatestContiguousSum = 0;
+  let greatestSoFar = 0;
+  let currentSum = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > greatestContiguousSum) {
+      greatestContiguousSum = array[i]
+    }
+    currentSum += array[i]
+    x = i + 1;
+    while(x < array.length) {
+      currentSum += array[x];
+      if (currentSum > greatestSoFar) {
+        greatestSoFar = currentSum;
+      }
+    }
+    if (greatestSoFar > greatestContiguousSum) {
+      greatestContiguousSum = greatestSoFar;
+    }
+    currentSum = 0;
+    greatestSoFar = 0;
+  }//for
+  return greatestContiguousSum;
 };
