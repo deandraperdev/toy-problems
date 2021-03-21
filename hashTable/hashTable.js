@@ -22,7 +22,7 @@ var getIndexBelowMaxForKey = function(str, max) {
 // It prevents me from having to write getters and setters to retrieve values.
 // In the interest of completing this in an hour, I believe it's the best solution.
 
-const HashTable = () => {
+const makeHashTable = () => {
   let result = {};
   result.storage = [];
   result.storageLimit = 1000;
