@@ -10,6 +10,8 @@
  * console.log(index); // null
  */
 
+//Checking solution on spectatorBot
+
 var binarySearch = function (array, target) {
     let lower = 0;
     let upper = array.length - 1;
