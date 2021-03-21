@@ -5,6 +5,7 @@ var LinkedList = function() {
   this.tail = null;
 };
 
+//Adding a line to recheck spectatorBot
 //write methods here!
 
 LinkedList.prototype.addToTail = function(value) {
