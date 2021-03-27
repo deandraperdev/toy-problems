@@ -23,9 +23,9 @@
  *
 */
 
-var bind = function(
-) {
+var bind = function(method, value) {
   // TODO: Your code here
+  return method.bind(value);
 };
 
 /*
@@ -53,7 +53,7 @@ var bind = function(
  *
 */
 
-Function.prototype.bind = function(
-) {
+Function.prototype.bind = function(args) {
   // TODO: Your code here
+  return this.bind(args);
 };
