@@ -21,12 +21,12 @@
     let stack = {}
     let minAtIndex = [];
     // let storage = {}; //redundant? Can just use different naming
-    let endOfStack = 0;
+    let end = 0;
     let min = 9999999999999;
 
   // add an item to the top of the stack
     this.push = function(value) {
-      endOfStack++;
+      end++;
       stack[end] = value;
       if (value < min) {
         min = value;
