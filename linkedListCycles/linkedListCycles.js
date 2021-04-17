@@ -17,14 +17,14 @@
  *
  * Example code:
  *
- * var nodeA = Node('A');
- * var nodeB = nodeA.next = Node('B');
- * var nodeC = nodeB.next = Node('C');
- * var nodeD = nodeC.next = Node('D');
- * var nodeE = nodeD.next = Node('E');
- * hasCycle(nodeA); // => false
- * nodeE.next = nodeB;
- * hasCycle(nodeA); // => true
+var nodeA = Node('A');
+var nodeB = nodeA.next = Node('B');
+var nodeC = nodeB.next = Node('C');
+var nodeD = nodeC.next = Node('D');
+var nodeE = nodeD.next = Node('E');
+hasCycle(nodeA); // => false
+nodeE.next = nodeB;
+hasCycle(nodeA); // => true
  *
  * Constraint 1: Do this in linear time
  * Constraint 2: Do this in constant space
@@ -37,4 +37,16 @@ var Node = function(value) {
 
 var hasCycle = function(linkedList) {
   // TODO: implement me!
+  let slowCrawler = linkedList;
+  let fastCrawler = linkedList.next;
+
+  while (fastCrawler !== null) {
+    slowCrawler = slowCrawler.next;
+    fastCrawler = fastCrawler.next.next;
+    if (slowCrawler === fastCrawler) {
+      return true;
+    }
+  }
+
+  return false;
 };
