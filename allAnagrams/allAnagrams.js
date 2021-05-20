@@ -12,6 +12,23 @@
   * console.log(anagrams); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
   */
 
-var allAnagrams = function(string) {
+const allAnagrams = function(string) {
   // Your code here.
+  debugger;
+  let anagrams = [];
+
+  const findAllAnagrams = (restOfStr, word) => {
+    if (restOfStr.length < 2) {
+      word += restOfStr;
+      return anagrams.push(word);
+    }
+    for ( let i = 0; i < restOfStr.length; i++ ) {
+      findAllAnagrams(restOfStr.slice(0, i) + restOfStr.slice(i + 1), word + restOfStr[i])
+    }
+  }
+
+  findAllAnagrams(string, '');
+  return anagrams;
 };
+
+allAnagrams('abc');
