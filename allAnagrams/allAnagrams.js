@@ -15,12 +15,14 @@
 const allAnagrams = function(string) {
   // Your code here.
   debugger;
-  let anagrams = [];
+  let anagrams = {};
 
   const findAllAnagrams = (restOfStr, word) => {
     if (restOfStr.length < 2) {
       word += restOfStr;
-      return anagrams.push(word);
+      // return anagrams.push(word);
+      anagrams[word] = 'done';
+      return;
     }
     for ( let i = 0; i < restOfStr.length; i++ ) {
       findAllAnagrams(restOfStr.slice(0, i) + restOfStr.slice(i + 1), word + restOfStr[i])
@@ -28,7 +30,7 @@ const allAnagrams = function(string) {
   }
 
   findAllAnagrams(string, '');
-  return anagrams;
+  return Object.keys(anagrams);
 };
 
 allAnagrams('abc');
