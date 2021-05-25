@@ -78,10 +78,54 @@ BinaryHeap.prototype.getRoot = function () {
   return this._heap[0];
 }
 
+BinaryHeap.prototype.swap = function (child, parent) {
+  [child, parent] = [parent, child];
+}
+
 BinaryHeap.prototype.insert = function (value) {
   // TODO: Your code here
+  let h = this._heap;
+  let swap = this.swap();
+  let comp = this._compare();
+  let index = h.length
+  let parent = Math.floor((index - 1) / 2);
+  
+  // while not at the top of tree, check to see if parent is smaller and swap
+  while (index > 0 && comp(h[index], h[parent])) {
+    swap(h[index], h[parent]);
+    index = parent;
+    parent = Math.floor((index - 1) / 2);
+  }
+  return h;
 }
 
 BinaryHeap.prototype.removeRoot = function () {
   // TODO: Your code here
+  let h = this._heap;
+  let swap = this.swap();
+  let comp = this._compare();
+  let index = 0;
+  let children = [index * 2 + 1, index * 2 + 2];
+
+  //set root to last element then remove last element
+  h[index] = h[h.length - 1];
+  h.pop();
+
+  // while children exist, check to see if parent is smaller and swap
+  while (h[children[0]]) {
+    if (children[1] === undefined || comp(h[children[0]], h[children[1]])) {
+      if (comp(h[children[0]], h[index])) {
+        swap(h[children[0]], h[index]);
+        index = children[0];
+        children = [index * 2 + 1, index * 2 + 2]
+      }
+    } else {
+      if (comp(h[children[1]], h[index])) {
+        swap(h[children[1]], h[index]);
+        index = children[1];
+        children = [index * 2 + 1, index * 2 + 2];
+      }
+    }
+  }
+  return h;
 }
