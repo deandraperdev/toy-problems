@@ -85,10 +85,12 @@ BinaryHeap.prototype.swap = function (child, parent) {
 BinaryHeap.prototype.insert = function (value) {
   // TODO: Your code here
   let h = this._heap;
-  let swap = this.swap();
-  let comp = this._compare();
+  let swap = this.swap;
+  let comp = this._compare;
   let index = h.length
   let parent = Math.floor((index - 1) / 2);
+  
+  h[index] = value;
   
   // while not at the top of tree, check to see if parent is smaller and swap
   while (index > 0 && comp(h[index], h[parent])) {
