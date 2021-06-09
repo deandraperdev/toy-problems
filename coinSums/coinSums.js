@@ -25,7 +25,25 @@ makeChange(2) === 2
 */
 
 var makeChange = function(total) {
+  let possibleAmounts = [2, 1, .5, .2, .1, .05, .02, .01];
+  let numOfWays = 0;
 
+  findNumOfWays = function(accumulated) {
+    
+    for ( let i = 0; i < possibleAmounts.length; i++ ) {
+      if (accumulated + possibleAmounts[i] < total) {
+        findNumOfWays(accumulated + possibleAmounts[i]);
+      } else if (accumulated + possibleAmounts[i] === total) {
+        numOfWays++;
+        return
+      }
+    }
+  }
+  findNumOfWays(0);
 };
+
+console.log(makeChange(1.00));
+console.log(makeChange(.01));
+console.log(makeChange(.02));
 
 

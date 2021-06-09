@@ -107,7 +107,7 @@ BinaryHeap.prototype.removeRoot = function () {
   // TODO: Your code here
   let h = this._heap;
   // let swap = this.swap();
-  let comp = this._compare();
+  let comp = this._compare;
   let index = 0;
   let children = [index * 2 + 1, index * 2 + 2];
   // console.log(h, comp, index, children);
